@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C1D133E-7BB3-495F-988E-CDE71F5AABFE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Scheduler</RootNamespace>
+    <AssemblyName>Scheduler</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Pipes\PipeConfig.cs" />
+    <Compile Include="Pipes\SchedulerServer.cs" />
+    <Compile Include="Pipes\SchedulerClient.cs" />
+    <Compile Include="SchedulerCore.cs" />
+    <Compile Include="Files\ActionType.cs" />
+    <Compile Include="Files\CommandType.cs" />
+    <Compile Include="Files\RepeatableType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Files\SCHElement.cs" />
+    <Compile Include="Files\SCHFile.cs" />
+    <Compile Include="Files\SCHMData.cs" />
+    <Compile Include="Files\SCHMetadata.cs" />
+    <Compile Include="SchedulerCoreParameters.cs" />
+    <Compile Include="Shell\AllowedToken.cs" />
+    <Compile Include="Shell\ShellData.cs" />
+    <Compile Include="Shell\ShellParser.cs" />
+    <Compile Include="Shell\TokenKey.cs" />
+    <Compile Include="TimeHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Libs\LibCfg\LibCfg.csproj">
+      <Project>{23cfa2e1-1e53-466b-90b6-11b24c5fff4e}</Project>
+      <Name>LibCfg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libs\LibLogger\LibLogger.csproj">
+      <Project>{14fa90a7-8d18-4cb8-99bf-7ff0574ace35}</Project>
+      <Name>LibLogger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
